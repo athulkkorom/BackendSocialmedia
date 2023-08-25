@@ -67,7 +67,7 @@ mongoose
       // Check password
       bcrypt.compare(password,user.password,(error,result)=>{
         if(result===true){
-          const token = jwt.sign({ email: user.email }, 'mysecretkey', { expiresIn: '1h' });
+          const token = jwt.sign({ userName: user.userName }, 'mysecretkey', { expiresIn: '1h' });
           res.status(200).json({ message: 'Authentication successful', token, user });
         }
         else{
